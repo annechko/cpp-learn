@@ -207,6 +207,8 @@ int main() {
     /**********************
     **** Arrays ********
     ***********************/
+    // arrays cannot be assigned values !
+
     // in square brackets [] specifies the length of the array - number of elements.
     // size - constant expression, must be determined at compile time.
     int arr_name[2];
@@ -235,6 +237,19 @@ int main() {
             std::cout << elem << '\n';
         }
     }
+
+    /********************************
+    **** Character sequences ********
+    *********************************/
+    // In both cases, the array of characters myword is declared with a size of 6 elements of type char:
+    // the 5 characters that compose the word "Hello", plus a final null character ('\0'),
+    // which specifies the end of the sequence and that, in the second case,
+    // when using double quotes (") it is appended automatically.
+    char str_myword[] = { 'H', 'e', 'l', 'l', 'o', '\0' };
+    char str_myword_literal[] = "Hello";
+
+    // string literals still always produce null-terminated character sequences, and not string objects.
+    auto str_a = "123";
 
 
     return EXIT_SUCCESS;
