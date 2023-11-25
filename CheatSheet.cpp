@@ -282,3 +282,24 @@ T fixed_multiply(T val) {
 }
 
 auto eee = fixed_multiply<int, 2>(10);
+
+
+namespace myNamespace {
+    int a, b;
+}
+auto a2 = myNamespace::a;
+
+namespace first {
+    int x = 5;
+    int y = 10;
+}
+namespace second {
+    double x = 3.1416;
+    double y = 2.7183;
+}
+using first::x;
+using second::y;
+int usefx = x + 10;
+int usesy = y + 10;
+
+namespace new_name = std;
