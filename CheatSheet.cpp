@@ -251,3 +251,34 @@ void even(int x) {
     if ((x % 2) == 0) std::cout << "It is even.\n";
     else odd(x);
 }
+
+// overloaded functions (i.e., two functions with the same name)
+// a function cannot be overloaded only by its return type.
+// At least one of its parameters must have a different type.
+int operate(int a, int b) {
+    return (a * b);
+}
+
+double operate(double a, double b) {
+    return (a / b);
+}
+
+// The function sum could be overloaded for a lot of types,
+// and it could make sense for all of them to have the same body
+//  For cases such as this, C++ has the ability to define functions with generic types,
+//  known as function templates.
+template<class SomeType>
+SomeType sum(SomeType a, SomeType b) {
+    return a + b;
+}
+
+int sum_res = sum<int>(10, 20);
+int sum_res2 = sum(10, 20);
+
+
+template<typename T, int N>
+T fixed_multiply(T val) {
+    return val * N;
+}
+
+auto eee = fixed_multiply<int, 2>(10);
