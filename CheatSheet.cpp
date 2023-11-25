@@ -3,6 +3,7 @@
 #include <string>
 #include <sstream>
 #include <thread>
+#include <array>
 
 int protofunction(int, int);
 
@@ -203,8 +204,46 @@ int main() {
         }
     }
 
+    /**********************
+    **** Arrays ********
+    ***********************/
+    // in square brackets [] specifies the length of the array - number of elements.
+    // size - constant expression, must be determined at compile time.
+    int arr_name[2];
+    arr_name[0] = 10;
+    arr_name[1] = 11;
+
+    int arr_foo[3] = {16, 2, 77};
+    int arr_baz[5] = {};
+    int arr_auto_size[] = {1, 2, 3};
+    int arr_auto_size_no_equal_sign[]{1, 2, 3};
+    int arr_3_rows_5_cols[3][5];
+
+    // include <array>
+    std::array<int, 3> array_container{1, 2, 3};
+    for (int i = 0; i < array_container.size(); ++i) {
+        // by reference.
+        ++array_container[i];
+    }
+    int array_3[] = {1, 2, 3};
+    for (int i = 0; i < 3; ++i) {
+        // also by reference.
+        ++array_3[i];
+    }
+    if (0) {
+        for (int elem: array_container) {
+            std::cout << elem << '\n';
+        }
+    }
+
+
     return EXIT_SUCCESS;
 }
+
+// array as arg
+void arr_procedure(int arg[]);
+
+void arr_multidimensional_dimensions_sizes_required(int myarray[][3][4]);
 
 
 int addition(int a, int b = 1) {
