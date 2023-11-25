@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <thread>
 
 int main() {
     /******************
@@ -128,22 +129,77 @@ int main() {
 // include <sstream>
 
     std::string mystr;
-    float price=0;
-    int quantity=0;
+    float price = 0;
+    int quantity = 0;
+    if (0) {
+        std::cout << "Enter price: ";
+        getline(std::cin, mystr);
+        std::stringstream(mystr) >> price;
+        std::cout << "Enter quantity: ";
+        getline(std::cin, mystr);
+        std::stringstream(mystr) >> quantity;
+        std::cout << "Total price: " << price * quantity << std::endl;
+    }
 
-    std::cout << "Enter price: ";
-    getline (std::cin,mystr);
-    std::stringstream(mystr) >> price;
-    std::cout << "Enter quantity: ";
-    getline (std::cin,mystr);
-    std::stringstream(mystr) >> quantity;
-    std::cout << "Total price: " << price*quantity << std::endl;
+    /**********************
+    **** Statements ********
+    ***********************/
+    int xf = 33;
+    if (0) {
+        if (xf > 0) {
+            std::cout << "x is positive";
+        } else if (xf < 0) {
+            std::cout << "x is negative";
+        } else {
+            std::cout << "x is 0";
+        }
+    }
+
+    if (0) {
+        // include <thread>
+        int n = 10;
+        while (n > 0) {
+            std::cout << n << std::endl;
+            std::this_thread::sleep_for(std::chrono::milliseconds(500));
+            --n;
+        }
+    }
+
+    if (0) {
+        std::string str;
+        do {
+            std::cout << "Enter text: ";
+            getline(std::cin, str);
+            std::cout << "You entered: " << str << '\n';
+        } while (str != "goodbye");
+    }
+
+    if (0) {
+        for (int n = 10; n > 0; n--) {
+            std::cout << n << ", ";
+        }
+    }
+    if (0) {
+        std::string str {"Hello!"};
+        for (char c : str)
+        {
+            std::cout << "[" << c << "]";
+        }
+
+        std::cout << '\n';
+    }
 
 
-
-
-
-
-
+    if (0) {
+        switch (x) {
+            case 1:
+            case 2:
+            case 3:
+                std::cout << "x is 1, 2 or 3";
+                break;
+            default:
+                std::cout << "x is not 1, 2 nor 3";
+        }
+    }
     return 0;
 }
